@@ -25,7 +25,7 @@ jobs:
           file-output: "./test/data/output.json"
 
       - name: cat output of action in filesystem
-        run: cat ./output.json
+        run: cat ./test/data/output.json
       # use later...
       # # Use the output from the `hello` step
       # - name: Get the output time
