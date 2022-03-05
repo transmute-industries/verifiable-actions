@@ -29,8 +29,8 @@ jobs:
           file-input: "./test/data/credential.json"
           file-output: "./test/data/verifiable-credential.json"
 
-      - name: View Verifiable Credential Issuer
-        run: echo "Issuer was ${{ steps.credential_issue.outputs.issuer.id }}"
+      - name: View Verifiable Credential
+        run: cat "./test/data/verifiable-credential.json"
 
       - name: Verify a Verifiable Credential
         id: credential_verify
@@ -45,4 +45,4 @@ jobs:
           file-output: "./test/data/verification.json"
 
       - name: View Verification Results
-        run: echo "Verification was ${{ steps.credential_verify.outputs.verified }}"
+        run: cat "./test/data/verification.json"
