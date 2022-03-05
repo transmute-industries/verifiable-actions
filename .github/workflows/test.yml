@@ -24,6 +24,9 @@ jobs:
           file-input: "./test/data/credential.json"
           file-output: "./test/data/verifiable-credential.json"
 
+      - name: View Verifiable Credential
+        run: echo "${{ steps.credential_issue.outputs }}"
+
       - name: Verify a Verifiable Credential
         id: credential_verify
         uses: transmute-industries/verifiable-actions@v0.0.4
@@ -35,3 +38,6 @@ jobs:
 
           file-input: "./test/data/verifiable-credential.json"
           file-output: "./test/data/verification.json"
+
+      - name: View Verification Results
+        run: echo "${{ steps.credential_verify.outputs }}"

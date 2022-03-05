@@ -24,6 +24,7 @@ inputs:
   # vc parameters
   vc-format:
     description: "The format of a W3C Verifiable Credential to use"
+
   vc-verify-endpoint:
     description: "The endpoint used to verify a W3C Verifiable Credential"
 
