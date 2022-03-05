@@ -1,0 +1,32 @@
+name: "Verifiable Action"
+description: "Workflow tools for Decentralized Identifiers & Verifiable Credentials"
+inputs:
+  resource:
+    description: "The resource to perform an action on"
+    required: true
+  action:
+    description: "The action to perform"
+    required: true
+
+  mnemonic:
+    description: "A BIP 39 Mnemonic"
+  hd-path:
+    description: "A BIP 44 HD Path"
+  key-type:
+    description: "A cryptographic key type"
+
+  vc-format:
+    description: "The format of a W3C Verifiable Credential to use"
+
+  file-input:
+    description: "A path to a file used as input"
+
+  file-output:
+    description: "A path to a file used to output"
+
+outputs:
+  response:
+    description: "The results from performing the operation"
+runs:
+  using: "node14"
+  main: "dist/index.js"

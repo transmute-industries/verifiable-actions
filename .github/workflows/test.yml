@@ -1,0 +1,30 @@
+on: [push]
+
+jobs:
+  issue_credential:
+    runs-on: ubuntu-latest
+    name: A job to issue a verifiable credential
+    steps:
+      - name: checking out repo
+        uses: actions/checkout@v2
+      - name: Hello world action step
+        id: credential_issue
+        uses: transmute-industries/verifiable-actions@v0.0.1
+        with:
+          resource: "credential"
+          action: "issue"
+
+          mnemonic: "sell antenna drama rule twenty cement mad deliver you push derive hybrid"
+          hd-path: "m/44'/0'/0'/0/0"
+          key-type: "ed25519"
+
+          vc-format: "vc"
+
+          file-input: "./input.json"
+          file-output: "./output.json"
+      - name: cat output of action in filesystem
+        run: cat ./output.json
+      # use later...
+      # # Use the output from the `hello` step
+      # - name: Get the output time
+      #   run: echo "The time was ${{ steps.hello.outputs.response }}"

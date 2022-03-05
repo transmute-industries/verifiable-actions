@@ -1,0 +1,33 @@
+{
+  "name": "@transmute/verifiable-actions",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx ncc build index.js --license licenses.txt",
+    "postbuild": "git add -A; git commit -m ':rocket:'; git push origin master",
+    "prerelease": "npm run build",
+    "release": "npm version patch && git add ./package.json",
+    "postrelease": "git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/transmute-industries/verifiable-actions.git"
+  },
+  "keywords": [],
+  "author": "Orie Steele",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/transmute-industries/verifiable-actions/issues"
+  },
+  "homepage": "https://github.com/transmute-industries/verifiable-actions#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.33.3"
+  }
+}
