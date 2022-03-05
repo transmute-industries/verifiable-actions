@@ -15,7 +15,7 @@ jobs:
 
       - name: Issue a Verifiable Credential
         id: credential_issue
-        uses: transmute-industries/verifiable-actions@v0.0.4
+        uses: transmute-industries/verifiable-actions@v0.0.5
         with:
           resource: "credential"
           action: "issue"
@@ -57,7 +57,7 @@ jobs:
           key: ${{ github.sha }}
       - name: Verify a Verifiable Credential
         id: credential_verify
-        uses: transmute-industries/verifiable-actions@v0.0.4
+        uses: transmute-industries/verifiable-actions@v0.0.5
         with:
           resource: "credential"
           action: "verify"
