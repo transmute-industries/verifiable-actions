@@ -8,9 +8,9 @@ jobs:
       - name: checking out repo
         uses: actions/checkout@v2
 
-      - name: Hello world action step
+      - name: Issue a Verifiable Credential
         id: credential_issue
-        uses: transmute-industries/verifiable-actions@v0.0.2
+        uses: transmute-industries/verifiable-actions@v0.0.3
         with:
           resource: "credential"
           action: "issue"
