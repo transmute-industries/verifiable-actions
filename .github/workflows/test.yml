@@ -7,6 +7,7 @@ jobs:
     steps:
       - name: checking out repo
         uses: actions/checkout@v2
+
       - name: Hello world action step
         id: credential_issue
         uses: transmute-industries/verifiable-actions@v0.0.1
@@ -22,6 +23,7 @@ jobs:
 
           file-input: "./input.json"
           file-output: "./output.json"
+
       - name: cat output of action in filesystem
         run: cat ./output.json
       # use later...
