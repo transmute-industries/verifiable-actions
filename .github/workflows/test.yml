@@ -1,4 +1,9 @@
+name: Verifiable Actions
+
 on: [push]
+
+# on:
+#   workflow_dispatch:
 
 jobs:
   issue_credential:
@@ -24,8 +29,8 @@ jobs:
           file-input: "./test/data/credential.json"
           file-output: "./test/data/verifiable-credential.json"
 
-      - name: View Verifiable Credential
-        run: echo "${{ steps.credential_issue.outputs }}"
+      - name: View Verifiable Credential Issuer
+        run: echo "Issuer was ${{ steps.credential_issue.outputs.issuer.id }}"
 
       - name: Verify a Verifiable Credential
         id: credential_verify
@@ -40,4 +45,4 @@ jobs:
           file-output: "./test/data/verification.json"
 
       - name: View Verification Results
-        run: echo "${{ steps.credential_verify.outputs }}"
+        run: echo "Verification was ${{ steps.credential_verify.outputs.verified }}"
