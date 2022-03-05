@@ -10,7 +10,11 @@ const issue = async (inputs) => {
     inputs.fileInputContent = parsedInput;
   }
 
-  const { keyType, mnemonic, hdPath } = inputs;
+  let { mnemonic, hdPath, keyType, vcFormat, verificationMethod } = inputs;
+
+  keyType = keyType || "ed25519";
+  hdPath = hdPath || `m/44'/0'/0'/0/0`;
+  vcFormat = vcFormat || "vc";
 
   const [key] = await cli.commands.key.derive.deriveKey(
     keyType,
@@ -18,8 +22,12 @@ const issue = async (inputs) => {
     hdPath
   );
 
+  verificationMethod = verificationMethod || key.id;
+
+  key.id = verificationMethod;
+  key.controller = verificationMethod.split("#")[0];
+
   const credential = inputs.fileInputContent;
-  const format = inputs.vcFormat;
 
   if (credential.issuer.id) {
     credential.issuer.id = key.controller;
@@ -30,7 +38,7 @@ const issue = async (inputs) => {
   const verifiableCredential = await cli.commands.credential.createCredential(
     credential,
     key,
-    format
+    vcFormat
   );
 
   outputs = verifiableCredential;
