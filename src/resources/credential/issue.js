@@ -33,7 +33,7 @@ const issue = async (inputs) => {
     format
   );
 
-  outputs = { ...outputs, verifiableCredential };
+  outputs = verifiableCredential;
 
   if (inputs.fileOutput) {
     fs.writeFileSync(inputs.fileOutput, JSON.stringify(outputs, null, 2));

@@ -1,3 +1,4 @@
 const { issue } = require("./issue");
+const { verify } = require("./verify");
 
-module.exports = { issue };
+module.exports = { issue, verify };

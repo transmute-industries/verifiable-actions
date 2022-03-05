@@ -10,7 +10,7 @@ jobs:
 
       - name: Issue a Verifiable Credential
         id: credential_issue
-        uses: transmute-industries/verifiable-actions@v0.0.3
+        uses: transmute-industries/verifiable-actions@v0.0.4
         with:
           resource: "credential"
           action: "issue"
@@ -21,12 +21,17 @@ jobs:
 
           vc-format: "vc"
 
-          file-input: "./test/data/input.json"
-          file-output: "./test/data/output.json"
+          file-input: "./test/data/credential.json"
+          file-output: "./test/data/verifiable-credential.json"
 
-      - name: cat output of action in filesystem
-        run: cat ./test/data/output.json
-      # use later...
-      # # Use the output from the `hello` step
-      # - name: Get the output time
-      #   run: echo "The time was ${{ steps.hello.outputs.response }}"
+      - name: Verify a Verifiable Credential
+        id: credential_verify
+        uses: transmute-industries/verifiable-actions@v0.0.4
+        with:
+          resource: "credential"
+          action: "verify"
+
+          vc-verify-endpoint: "https://api.did.actor/api/credentials/verify"
+
+          file-input: "./test/data/verifiable-credential.json"
+          file-output: "./test/data/verification.json"
