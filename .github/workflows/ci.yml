@@ -7,7 +7,7 @@ on: [push]
 
 jobs:
   issue_credential:
-    name: A job to issue a verifiable credential
+    name: Issue Verifiable Credential
     runs-on: ubuntu-latest
     steps:
       - name: checking out repo
@@ -41,7 +41,7 @@ jobs:
           key: ${{ github.sha }}
 
   verify_credential:
-    name: A job to verify a verifiable credential
+    name: Verify Verifiable Credential
     concurrency: verify_credential
     needs:
       - issue_credential
