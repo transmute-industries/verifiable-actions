@@ -10,7 +10,7 @@ jobs:
 
       - name: Hello world action step
         id: credential_issue
-        uses: transmute-industries/verifiable-actions@v0.0.1
+        uses: transmute-industries/verifiable-actions@v0.0.2
         with:
           resource: "credential"
           action: "issue"
