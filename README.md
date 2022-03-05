@@ -17,7 +17,7 @@ jobs:
       - name: checking out repo
         uses: actions/checkout@v2
       - name: Issue a Verifiable Credential
-        uses: transmute-industries/verifiable-actions@v0.0.5
+        uses: transmute-industries/verifiable-actions@v0.0.6
         with:
           resource: "credential"
           action: "issue"
@@ -39,7 +39,7 @@ jobs:
       - name: checking out repo
         uses: actions/checkout@v2
       - name: Verify a Verifiable Credential
-        uses: transmute-industries/verifiable-actions@v0.0.5
+        uses: transmute-industries/verifiable-actions@v0.0.6
         with:
           resource: "credential"
           action: "verify"
