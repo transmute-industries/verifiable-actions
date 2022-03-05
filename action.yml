@@ -22,6 +22,9 @@ inputs:
     description: "A path to a file used to output"
 
   # vc parameters
+  verification-method:
+    description: "The verification method used to issue and verify a credential"
+
   vc-format:
     description: "The format of a W3C Verifiable Credential to use"
 
