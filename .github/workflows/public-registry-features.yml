@@ -48,7 +48,7 @@ jobs:
           key-type: "ed25519"
 
           file-input: "./test/data/credential.json"
-          file-output: "./test/data/verifiable-credential.json"
+          file-output: "./test/data/registry"
 
-      - name: View Verifiable Credential
-        run: cat "./test/data/verifiable-credential.json"
+      - name: View Registry Index
+        run: cat "./test/data/registry/index.json"

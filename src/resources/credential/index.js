@@ -1,4 +1,3 @@
 const { create } = require("./create");
 const { verify } = require("./verify");
-
-module.exports = { create, verify };
+module.exports = { create, verify, registryIndexRefresh };

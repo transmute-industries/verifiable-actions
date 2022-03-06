@@ -12,6 +12,9 @@ const create = async (inputs) => {
     output: inputs.fileOutput,
   };
   await cli.commands.credential.createCredentialHandler(options);
+  await cli.commands.credential.registryIndexRefreshHandler({
+    input: inputs.fileOutput, // because we are reusing the argument from the command above
+  });
   return outputs;
 };
 
