@@ -1,4 +1,4 @@
-const { issue } = require("./issue");
+const { create } = require("./create");
 const { verify } = require("./verify");
 
-module.exports = { issue, verify };
+module.exports = { create, verify };
