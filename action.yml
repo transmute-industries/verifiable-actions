@@ -8,6 +8,12 @@ inputs:
     description: "The action to perform"
     required: true
 
+  username:
+    description: "A github username"
+
+  repository:
+    description: "A github repository"
+
   mnemonic:
     description: "A BIP 39 Mnemonic"
   hd-path:

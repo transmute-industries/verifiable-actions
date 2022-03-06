@@ -1,0 +1,54 @@
+name: Public Credential Registry Features
+
+on: [push]
+
+jobs:
+  create_registry_issuer:
+    concurrency: create_registry_issuer
+    name: Create Registry Issuer
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out repo
+        uses: actions/checkout@v2
+
+      - name: Create Issuer
+        id: create_issuer
+        uses: transmute-industries/verifiable-actions@v0.0.11
+        with:
+          resource: "did"
+          action: "generate"
+          username: "transmute-industries"
+          repository: "verifiable-actions"
+          mnemonic: "${{ secrets.MNEMONIC }}"
+          hd-path: "m/44'/0'/0'/0/0"
+          key-type: "ed25519"
+          file-output: "./test/data/issuer-0.json"
+
+      - name: View Registry Issuer
+        run: cat "./test/data/issuer-0.json"
+
+  create_registry_credential:
+    concurrency: create_registry_credential
+    name: Create Registry Credential
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out repo
+        uses: actions/checkout@v2
+
+      - name: Create a Verifiable Credential
+        id: create_registry_credential
+        uses: transmute-industries/verifiable-actions@v0.0.11
+        with:
+          resource: "credential"
+          action: "create"
+          username: "transmute-industries"
+          repository: "verifiable-actions"
+          mnemonic: "${{ secrets.MNEMONIC }}"
+          hd-path: "m/44'/0'/0'/0/0"
+          key-type: "ed25519"
+
+          file-input: "./test/data/credential.json"
+          file-output: "./test/data/registry"
+
+      - name: View Registry Index
+        run: cat "./test/data/registry/index.json"

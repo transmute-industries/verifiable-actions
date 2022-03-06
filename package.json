@@ -1,6 +1,6 @@
 {
   "name": "@transmute/verifiable-actions",
-  "version": "0.0.6",
+  "version": "0.0.11",
   "description": "",
   "main": "index.js",
   "private": true,
@@ -26,7 +26,7 @@
   "dependencies": {
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0",
-    "@transmute/cli": "^0.7.0-unstable.53"
+    "@transmute/cli": "^0.7.0-unstable.54"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.33.3",
