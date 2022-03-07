@@ -25,6 +25,14 @@ Workflow tools for Decentralized Identifiers & Verifiable Credentials
 - [W3C CCG Traceability Vocabulary](https://w3id.org/traceability)
 - [W3C CCG Traceability Interoperability Profile](https://w3id.org/traceability/interoperability)
 
+#### Related Work
+
+- [verifiable-data](https://github.com/transmute-industries/verifiable-data)
+- [did-key.js](https://github.com/transmute-industries/did-key.js)
+- [sidetree.js](https://github.com/transmute-industries/sidetree.js)
+- [universal-wallet](https://github.com/transmute-industries/universal-wallet)
+- [did actor api](https://github.com/transmute-industries/api.did.actor)
+
 ## Usage
 
 - See [public-registry-features.yml](./.github/workflows/public-registry-features.yml)
