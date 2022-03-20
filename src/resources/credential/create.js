@@ -12,8 +12,15 @@ const create = async (inputs) => {
     output: inputs.fileOutput,
   };
   await cli.commands.credential.createCredentialHandler(options);
+  // because we are reusing the argument from the command above
+  // we assume a registry index is located next to registry credentials
+  // due to assuming that the registry will be hosted in github
+  const registryPathParts = inputs.fileOutput.split("/");
+  const registryPath = registryPathParts
+    .slice(0, registryPathParts.length - 1)
+    .join("/");
   await cli.commands.credential.registryIndexRefreshHandler({
-    input: inputs.fileOutput, // because we are reusing the argument from the command above
+    input: registryPath,
   });
   return outputs;
 };
