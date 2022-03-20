@@ -1,4 +1,6 @@
 const cli = require("@transmute/cli");
+const fs = require("fs");
+
 const create = async (inputs) => {
   let outputs = {};
   let { username, repository, mnemonic, hdPath, keyType } = inputs;
@@ -8,10 +10,15 @@ const create = async (inputs) => {
     mnemonic,
     hdpath: hdPath,
     type: keyType,
+    format: inputs.vcFormat,
     input: inputs.fileInput,
     output: inputs.fileOutput,
   };
-  await cli.commands.credential.createCredentialHandler(options);
+  const key = await cli.commands.credential.getKey(options);
+  const credential = await cli.util.getCredentialFromFile(options.input);
+  const data = await createPublicRegistryCredential(options, key, credential);
+  fs.writeFileSync(options.output, data);
+  outputs.data = data;
   // because we are reusing the argument from the command above
   // we assume a registry index is located next to registry credentials
   // due to assuming that the registry will be hosted in github
