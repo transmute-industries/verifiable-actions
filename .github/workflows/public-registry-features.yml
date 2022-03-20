@@ -52,7 +52,6 @@ jobs:
 
       - name: Get the output time
         run: |-
-          echo "${{ toJson(steps.create_registry_credential.outputs) }}" | jq
           cat ./test/data/registry/example-vc.json
 
       # - name: View Registry Index
