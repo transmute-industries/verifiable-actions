@@ -14,6 +14,7 @@ const getInputs = () => {
   const fileInput = core.getInput("file-input");
   const fileOutput = core.getInput("file-output");
 
+  const vcFormat = core.getInput("vc-format");
   const vcVerifyEndpoint = core.getInput("vc-verify-endpoint");
 
   return {
@@ -30,6 +31,7 @@ const getInputs = () => {
     fileInput,
     fileOutput,
 
+    vcFormat,
     vcVerifyEndpoint,
   };
 };
