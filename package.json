@@ -10,7 +10,8 @@
     "postbuild": "git add -A; git commit -m ':rocket:'; git push origin master",
     "prerelease": "npm run build",
     "release": "npm version patch && git add ./package.json",
-    "postrelease": "git push --tags"
+    "postrelease": "git push --tags",
+    "hacky-test": " git add -A; git commit -m "chore: test"; npm run release"
   },
   "repository": {
     "type": "git",
