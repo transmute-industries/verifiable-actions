@@ -16,7 +16,11 @@ const create = async (inputs) => {
   };
   const key = await cli.commands.credential.getKey(options);
   const credential = await cli.util.getCredentialFromFile(options.input);
-  const data = await createPublicRegistryCredential(options, key, credential);
+  const data = await cli.commands.credential.createPublicRegistryCredential(
+    options,
+    key,
+    credential
+  );
   fs.writeFileSync(options.output, data);
   outputs.data = data;
   // because we are reusing the argument from the command above
