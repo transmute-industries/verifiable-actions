@@ -21,7 +21,10 @@ const create = async (inputs) => {
     key,
     credential
   );
-  fs.writeFileSync(options.output, data);
+  fs.writeFileSync(
+    options.output,
+    JSON.stringify(typeof data === "string" ? { jwt: data } : data, null, 2)
+  );
   outputs.data = data;
   // because we are reusing the argument from the command above
   // we assume a registry index is located next to registry credentials
